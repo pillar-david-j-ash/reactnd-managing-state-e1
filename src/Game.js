@@ -17,6 +17,7 @@ class Game extends Component {
 
   checkAnswer = (guessedAnswer) => {
     this.props.calculateScore(guessedAnswer)
+    this.setState(this.formulateQuestion())
   }
 
   render(){
