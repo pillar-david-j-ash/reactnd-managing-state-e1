@@ -6,10 +6,16 @@ const value1 = Math.floor(Math.random() * 100);
 const value2 = Math.floor(Math.random() * 100);
 const value3 = Math.floor(Math.random() * 100);
 const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;
-const numQuestions = 0;
-const numCorrect = 0;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      numCorrect: 0,
+      numQuestions: 0,
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -25,7 +31,7 @@ class App extends Component {
           <button>True</button>
           <button>False</button>
           <p className="text">
-            Your Score: {numCorrect}/{numQuestions}
+            Your Score: {this.state.numCorrect}/{this.state.numQuestions}
           </p>
         </div>
       </div>
