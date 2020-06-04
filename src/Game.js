@@ -15,14 +15,18 @@ class Game extends Component {
       return {value1, value2, value3, proposedAnswer}
   }
 
+  checkAnswer = (guessedAnswer) => {
+    this.props.calculateScore(guessedAnswer)
+  }
+
   render(){
     return (
       <div>
         <div className="equation">
           <p className="text">{`${this.state.value1} + ${this.state.value2} + ${this.state.value3} = ${this.state.proposedAnswer}`}</p>
         </div>
-        <button onClick={() => this.props.calculateScore(true)}>True</button>
-        <button onClick={() => this.props.calculateScore(false)}>False</button>
+        <button onClick={() => this.checkAnswer(true)}>True</button>
+        <button onClick={() => this.checkAnswer(false)}>False</button>
       </div>
     )
   }
