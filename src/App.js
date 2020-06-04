@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Score from "./Score";
 
 const value1 = Math.floor(Math.random() * 100);
 const value2 = Math.floor(Math.random() * 100);
@@ -30,9 +31,7 @@ class App extends Component {
           </div>
           <button>True</button>
           <button>False</button>
-          <p className="text">
-            Your Score: {this.state.numCorrect}/{this.state.numQuestions}
-          </p>
+          <Score numCorrect={this.state.numCorrect} numQuestions={this.state.numQuestions}/>
         </div>
       </div>
     );
