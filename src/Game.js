@@ -8,15 +8,17 @@ class Game extends Component {
   }
 
   formulateQuestion = () => {
-      const value1 = Math.floor(Math.random() * 100);
-      const value2 = Math.floor(Math.random() * 100);
-      const value3 = Math.floor(Math.random() * 100);
-      const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;
-      return {value1, value2, value3, proposedAnswer}
+    const value1 = Math.floor(Math.random() * 100);
+    const value2 = Math.floor(Math.random() * 100);
+    const value3 = Math.floor(Math.random() * 100);
+    const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;
+    return {value1, value2, value3, proposedAnswer}
   }
 
   checkAnswer = (guessedAnswer) => {
-    this.props.calculateScore(guessedAnswer)
+    const actualAnswer = this.state.value1 + this.state.value2 + this.state.value3 === this.state.proposedAnswer
+    const isCorrect = actualAnswer === guessedAnswer
+    this.props.calculateScore(isCorrect)
     this.setState(this.formulateQuestion())
   }
 
